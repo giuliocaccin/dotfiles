@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias -- -="cd -"
+
+# fallback by typo
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+
+# Print each PATH entry on a separate line 
+alias path='echo -e ${PATH//:/\\n}'
+
+# tree (with fallback)
+if which tree >/dev/null 2>&1; then
+  # displays a directory tree
+  alias tree="tree -Csu"
+  # displays a directory tree - paginated
+  alias ltree="tree -Csu | less -R"
+else
+  # displays a directory tree
+  alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+  # displays a directory tree - paginated
+  alias ltree="tree | less -R"
+fi

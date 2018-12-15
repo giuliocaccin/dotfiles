@@ -1,0 +1,16 @@
+[user]
+	email = giuliocaccin@gmail.com
+	name = giuliocaccin
+[alias]
+	ll = log --all --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold blue)%d%Creset %s %Cgreen(%cr) %Cred<%an>%Creset'
+	l = log --all --graph --decorate --oneline
+	c = clean -fdx
+	f = fetch -apt --all
+	amend = commit --amend --no-edit
+	s = status -sb
+[merge]
+	tool = vimdiff 
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
