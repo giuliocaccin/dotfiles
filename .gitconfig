@@ -1,16 +1,30 @@
 [user]
-	email = giuliocaccin@gmail.com
-	name = giuliocaccin
+email = giuliocaccin@gmail.com
+name = Giulio Caccin
 [alias]
-	ll = log --all --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold blue)%d%Creset %s %Cgreen(%cr) %Cred<%an>%Creset'
-	l = log --all --graph --decorate --oneline
-	c = clean -fdx
-	f = fetch -apt --all
-	amend = commit --amend --no-edit
-	s = status -sb
-[merge]
-	tool = vimdiff 
+ll = log --all --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold blue)%d%Creset %s %Cgreen(%cr) %Cred<%an>%Creset'
+l = log --all --graph --decorate --oneline
+c = clean -fdx
+f = fetch -apt --all
+amend = commit --amend --no-edit
+s = status -sb
+[core]
+editor = code --wait
+[push]
+default = upstream
+[rerere]
+enabled = true
 [diff]
-	tool = vimdiff
+tool = default-difftool
 [difftool]
-	prompt = false
+prompt = false
+[difftool "default-difftool"]
+cmd = code --wait --diff $LOCAL $REMOTE
+prompt = false
+[merge]
+log = true
+tool = default-mergetool
+[mergetool]
+prompt = false
+[mergetool "default-mergetool"]
+cmd = code --wait $MERGED
