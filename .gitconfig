@@ -8,6 +8,7 @@ c = clean -fdx
 f = fetch -apt --all
 amend = commit --amend --no-edit
 s = status -sb
+new = !git init && git symbolic-ref HEAD refs/heads/main
 [core]
 editor = code --wait
 [push]
