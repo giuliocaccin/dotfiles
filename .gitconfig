@@ -1,18 +1,21 @@
 [user]
-email = giuliocaccin@gmail.com
-name = Giulio Caccin
+    name = Giulio Caccin
+
 [alias]
-ll = log --all --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold blue)%d%Creset %s %Cgreen(%cr) %Cred<%an>%Creset'
-l = log --all --graph --decorate --oneline
-c = clean -fdx
-f = fetch -apt --all
-amend = commit --amend --no-edit
-s = status -sb
-new = !git init && git symbolic-ref HEAD refs/heads/main
-[core]
-editor = code --wait
+    ll = log --all --graph --pretty=format:'%C(yellow)%h%Creset -%C(bold blue)%d%Creset %s %Cgreen(%cr) %Cred<%an>%Creset'
+    l = log --all --graph --decorate --oneline
+    c = clean -fdx
+    f = fetch -apt --all
+    amend = commit --amend --no-edit
+    s = status -sb
+    new = !git init && git symbolic-ref HEAD refs/heads/main
+    prune-gone = !git branch -vv | grep 'gone]' | awk '{print $1}' | xargs git branch -D
+	latest = "!f() { git checkout $1 && git pull && git fetch -p && git prune-gone; }; f"
+
 [push]
-default = upstream
+    default = upstream
+    useForceIfIncludes = true
+
 [rerere]
 enabled = true
 [diff]
